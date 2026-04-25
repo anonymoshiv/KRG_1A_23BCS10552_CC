@@ -1,0 +1,23 @@
+  #include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str;
+    cin >> str;
+
+    const long long mod = 1000000007LL;
+    const long long base = 31LL;
+
+    long long hashValue = 0;
+    long long power = 1;
+
+    for (char ch : str) {
+        long long value = ch - 'a' + 1;
+        hashValue = (hashValue + value * power) % mod;
+        power = (power * base) % mod;
+    }
+
+    cout << hashValue << '\n';
+    return 0;
+}
